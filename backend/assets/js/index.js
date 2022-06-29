@@ -19,6 +19,7 @@ $("#update_user").submit(function(event){
 
     $.ajax(request).done(function(response){
         alert("Data Updated Successfully!");
+        window.location.replace("http://localhost:3000/");
     })
 })
 
@@ -34,7 +35,7 @@ if(window.location.pathname =="/"){
 
         if(confirm("Do you really want to delete this record?")){
             $.ajax(request).done(function(response){
-                alert("Data Updated Successfully!");
+                alert("Data Deleted Successfully!");
                 location.reload()
             })
         }

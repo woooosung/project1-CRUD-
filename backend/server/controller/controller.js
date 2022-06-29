@@ -10,10 +10,10 @@ exports.create = (req, res) => {
 
     //new user
     const user = new Userdb({
-        name:req.body.name,
-        age:req.body.age,
-        email:req.body.email,
-        gender:req.body.gender
+        name: req.body.name,
+        age: req.body.age,
+        email: req.body.email,
+        gender: req.body.gender
     })
 
     //save user in the database
@@ -21,7 +21,7 @@ exports.create = (req, res) => {
         .save(user)
         .then(data=>{
             //res.send(data)
-            res.redirect('/add-user');
+            res.redirect('/');
         })
         .catch(err =>{
             res.status(500).send({
@@ -37,7 +37,7 @@ exports.find = (req, res)=>{
         const id = req.query.id;
         
         Userdb.findById(id)
-            .then(data=>{
+            .then(data =>{
                 if(!data){
                     res.status(404).send({message : "Not found user with id "+id})
                 }else{
